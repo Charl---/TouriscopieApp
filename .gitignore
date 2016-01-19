@@ -3,7 +3,8 @@
 .tmp
 .git
 node_modules
+plugins
+platforms
 .settings
 *.log
-www/vendor.bundle.js
-www/app.bundle.js
+www/bundle.js
