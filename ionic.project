@@ -1,0 +1,7 @@
+{
+  "name": "Touriscopie",
+  "app_id": "com.ionic.charl.touriscopie",
+  "gulpStartupTasks": [
+    "webpack:watch"
+  ]
+}

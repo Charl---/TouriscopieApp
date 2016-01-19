@@ -1,0 +1,5 @@
+{
+  "api": {
+    "basePath": "http://touriscopie.fr/wp-json/wp/v2/"
+  }
+}

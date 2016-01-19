@@ -1,0 +1,87 @@
+{
+  "name": "Touriscopie",
+  "version": "0.0.0",
+  "description": "simple mobile app for wordpress magazine touriscopie",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.0-rc.0",
+    "angular-animate": "^1.4.8",
+    "angular-formly-templates-ionic": "^1.2.2",
+    "angular-sanitize": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "ionic-sdk": "^1.2.0",
+    "js-data": "^2.8.2",
+    "js-data-angular": "^3.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.8",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "body-parser": "^1.14.1",
+    "css-loader": "^0.23.0",
+    "del": "^2.1.0",
+    "eslint": "^1.10.1",
+    "eslint-loader": "^1.1.1",
+    "file-loader": "^0.8.4",
+    "glob-promise": "^1.0.4",
+    "gulp": "^3.9.0",
+    "gulp-copy": "0.0.2",
+    "gulp-watch": "^4.3.5",
+    "html-webpack-plugin": "^1.6.2",
+    "jasmine-core": "^2.3.4",
+    "json-file-plus": "^3.2.0",
+    "json-loader": "^0.5.3",
+    "json-server": "^0.8.6",
+    "jwt-simple": "^0.4.1",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-nyan-reporter": "^0.2.2",
+    "karma-sourcemap-loader": "^0.3.6",
+    "karma-webpack": "^1.7.0",
+    "lodash": "^3.10.1",
+    "ng-annotate": "^1.0.2",
+    "ng-annotate-loader": "0.0.10",
+    "node-sass": "^3.4.2",
+    "raw-loader": "^0.5.1",
+    "replace-in-file": "^1.0.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.8"
+  },
+  "scripts": {
+    "test": "karma start",
+    "install": "ionic state save && gulp prepare && gulp webpack"
+  },
+  "keywords": [
+    "ionic",
+    "webpack",
+    "es6",
+    "generators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "AmbientIT",
+  "license": "MIT",
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-console"
+  ],
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    }
+  ]
+}

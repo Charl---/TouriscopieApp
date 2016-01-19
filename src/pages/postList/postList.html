@@ -1,0 +1,15 @@
+<ion-view view-title="{{::vm.name}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-plus-round" ng-click="::vm.modal.show()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <h1>{{ vm.name }}</h1>
+    <ion-list can-swipe="true" show-delete="false">
+      <ion-item ng-repeat="item in vm.posts track by item.id" class="item-remove-animate item" >
+        {{::item.title.rendered}}
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="vm.loadMore()" distance="10%" ng-if="!vm.loadComplete"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
