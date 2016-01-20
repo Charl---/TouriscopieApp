@@ -4,7 +4,7 @@ import del from 'del';
 import wpConfig from '../webpack.config';
 
 gulp.task('clean', (done)=>{
-  del(['www/*']).then(function (paths) {
+  del(['www/index.html', 'www.bundle.js']).then(function (paths) {
     console.info('Deleted files/folders:\n', paths.join('\n'));
     done();
   });

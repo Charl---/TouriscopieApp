@@ -1,10 +1,10 @@
 [
   {
-    "label": "home",
-    "state": "home"
+    "state": "editos",
+    "label": "Les éditos"
   },
   {
-    "state": "postList",
-    "label": "postList"
+    "state": "archives",
+    "label": "Les archives"
   }
 ]

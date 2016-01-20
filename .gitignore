@@ -7,4 +7,3 @@ plugins
 platforms
 .settings
 *.log
-www/bundle.js

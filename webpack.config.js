@@ -8,7 +8,7 @@ module.exports = {
   debug: true,
   devTool: 'inline-source-map',
   //devtool: 'sourcemap',
-  entry: ["lodash","angular","angular-animate","angular-sanitize","angular-ui-router","ionic","ionicAngular","js-data","js-data-angular","/home/charl/Workspace/JsProjects/TouriscopieApp/src/app.js"],
+  entry: ["lodash","angular","angular-animate","angular-sanitize","angular-ui-router","ionic","ionicAngular","ionicFilterBar","js-data","js-data-angular","localforage-cordovasqlitedriver","/home/charl/Workspace/JsProjects/TouriscopieApp/src/app.js"],
   output: {
     path: path.join(__dirname, "www"),
     filename: "bundle.js"
@@ -23,12 +23,19 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      },
+      {
         test: /\.json$/,
         loader: 'json-loader'
       },
       {
         test: /\.js$/,
-        exclude: [/app\/lib/, /node_modules/],
+        exclude: [/src\/lib/, /node_modules/],
         loader: 'babel'
       },
       {
@@ -70,6 +77,8 @@ module.exports = {
     alias: {
       ionic: [path.join(__dirname, 'node_modules/ionic-sdk/release/js/ionic.js')],
       ionicAngular: [path.join(__dirname, 'node_modules/ionic-sdk/release/js/ionic-angular.js')],
+      ionicMaterial: [path.join(__dirname, 'src/lib/ionic-material/ionic.material.js')],
+      ionicFilterBar: [path.join(__dirname, 'src/lib/ionic-filter-bar/dist/ionic.filter.bar.js')],
       formlyIonic: [path.join(__dirname, 'node_modules', 'angular-formly-templates-ionic', 'dist', 'angular-formly-templates-ionic.js')],
       restangular: [path.join(__dirname, 'node_modules', 'restangular', 'dist', 'restangular.js')]
     }

@@ -26,19 +26,31 @@ function bootstrap(appModule) {
     });
 }
 
-function appRun($rootScope, $log) {
+function appRun($rootScope, $log, $ionicPlatform, $window) {
   'ngInject';
   /*eslint no-unused-vars:0*/
   $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
     $log.error(error);
   });
+
+  $ionicPlatform.ready(function () {
+    if ($window.cordova && $window.cordova.plugins.Keyboard) {
+      $window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      $window.cordova.plugins.Keyboard.disableScroll(true);
+    }
+    if ($window.StatusBar) {
+      //$window.StatusBar.styleDefault();
+      $window.StatusBar.overlaysWebView(false);
+      $window.StatusBar.backgroundColorByHexString('#387ef5');
+    }
+  });
 }
 
 function appConfig($urlRouterProvider, config, DSProvider, DSHttpAdapterProvider) {
   'ngInject';
-  $urlRouterProvider.otherwise('/home');
-  Object.assign(DSProvider.defaults, config.api);
-  Object.assign(DSHttpAdapterProvider.defaults, config.api);
+  $urlRouterProvider.otherwise('/#/');
+  window.angular.extend(DSProvider.defaults, config.api);
+  window.angular.extend(DSHttpAdapterProvider.defaults, config.api);
 }
 
 export {

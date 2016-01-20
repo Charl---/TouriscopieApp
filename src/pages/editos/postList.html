@@ -1,0 +1,25 @@
+<ion-view view-title="Editoriaux">
+  <ion-nav-buttons side="secondary">
+   <button class="button button-icon icon ion-ios-search-strong" ng-click="vm.showFilterBar()">
+   </button>
+ </ion-nav-buttons>
+  <ion-content delegate-handle="example-scroller" elastic-header="editos-elastic-header" overflow-scroll="false">
+    <div id="editos-elastic-header" style="background-image:url(assets/cropped-parasol.jpg)" class="background-image"></div>
+    <div class="list card" ng-repeat="item in vm.posts | orderBy:'-date' track by item.id" class="item-remove-animate item" style=overflow-x:hidden>
+      <div class="item">
+        <h2 ng-bind-html="::item.title.rendered"></h2>
+      </div>
+
+      <div class="item item-body">
+        <div ng-bind-html="::item.excerpt.rendered"></div>
+        <p>
+          <button ui-sref="edito({id:item.id})" class="button button-raised button-block">
+            Lire l'article
+          </button>
+        </p>
+      </div>
+
+    </div>
+    <ion-infinite-scroll on-infinite="vm.loadMore()" distance="10%" ng-if="!vm.loadComplete"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
