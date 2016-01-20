@@ -11,9 +11,7 @@
     "ionic-sdk": "^1.2.0",
     "js-data": "^2.8.2",
     "js-data-angular": "^3.1.0",
-    "js-data-localforage": "^2.1.1",
-    "localforage": "^1.3.1",
-    "localforage-cordovasqlitedriver": "^1.1.0"
+    "js-data-localforage": "^2.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.8",
@@ -33,6 +31,7 @@
     "gulp-watch": "^4.3.5",
     "html-webpack-plugin": "^1.6.2",
     "image-loader": "0.0.1",
+    "imports-loader": "^0.6.5",
     "jasmine-core": "^2.3.4",
     "json-file-plus": "^3.2.0",
     "json-loader": "^0.5.3",
@@ -47,15 +46,13 @@
     "lodash": "^3.10.1",
     "ng-annotate": "^1.0.2",
     "ng-annotate-loader": "0.0.10",
-    "node-sass": "^3.4.2",
     "raw-loader": "^0.5.1",
     "replace-in-file": "^1.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
     "sass-loader": "^3.1.1",
     "style-loader": "^0.13.0",
-    "url-loader": "^0.5.6",
-    "webpack": "^1.12.8"
+    "url-loader": "^0.5.6"
   },
   "scripts": {
     "test": "karma start",
@@ -76,16 +73,18 @@
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-console",
     "ionic-plugin-keyboard",
-    "cordova-plugin-splashscreen",
-    {
-      "locator": "https://github.com/litehelpers/Cordova-sqlite-storage.git",
-      "id": "cordova-sqlite-storage"
-    }
+    "cordova-plugin-crosswalk-webview"
   ],
   "cordovaPlatforms": [
-    "android"
+    "android",
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    }
   ]
 }

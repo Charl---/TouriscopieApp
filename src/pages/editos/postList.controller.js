@@ -23,7 +23,7 @@ class PostListController {
     this.Post.findAll(
       {
         page: this.page,
-        _limit: this.config.crud.itemPerPage,
+        'per_page': this.config.crud.itemPerPage,
         _embed: true,
         'filter[category_name]': 'Editorial'
       }
@@ -33,6 +33,19 @@ class PostListController {
       }
       this.page++;
       this.scope.$broadcast('scroll.infiniteScrollComplete');
+    });
+  }
+
+  pullToRefresh() {
+    this.Post.findAll(
+      {
+        page: 1,
+        'per_page': 1,
+        _embed: true,
+        'filter[category_name]': 'Editorial'
+      }
+    ).then(()=>{
+      this.scope.$broadcast('scroll.refreshComplete');
     });
   }
 

@@ -1,4 +1,3 @@
-
 import './app.scss';
 
 import angular from 'angular';

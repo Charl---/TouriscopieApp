@@ -1,3 +1,5 @@
+//const DSLocalForageAdapter = require('js-data-localforage');
+
 /**
  * Angular service that use js-data angular to manage posts
  */
@@ -9,10 +11,14 @@ class Post {
    */
   constructor(DS) {
     'ngInject';
+    /*var lf = new DSLocalForageAdapter();
+    DS.registerAdapter('localforage', lf);*/
+
     return DS.defineResource({
       name: 'post',
       idAttribute: 'id',
-      endpoint: 'posts'
+      endpoint: 'posts'/*,
+      fallbackAdapters: 'localforage'*/
     });
   }
 }
