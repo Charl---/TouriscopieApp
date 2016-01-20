@@ -7,3 +7,6 @@ plugins
 platforms
 .settings
 *.log
+www/index.html
+www/bundle.js.map
+www/bundle.js

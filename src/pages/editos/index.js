@@ -16,13 +16,21 @@ export default (appModule)=>{
         controller,
         controllerAs: 'vm',
         resolve: {
-          posts: (Post, config) =>{
+          posts: (Post, config, Connectivity) =>{
             'ngInject';
-            return Post.findAll({
+            let adapter = 'http';
+            let query = {
               page: 0,
               per_page: config.crud.itemPerPage,
               _embed: true,
               'filter[category_name]': 'Editorial'
+            };
+            if (!Connectivity.hasNetwork) {
+              adapter = 'localforage';
+              query = {};
+            }
+            return Post.findAll(query, {
+              adapter
             });
           }
         }
@@ -36,7 +44,7 @@ export default (appModule)=>{
         resolve: {
           post: (Post, $stateParams) =>{
             'ngInject';
-            return Post.find($stateParams.id);
+            return Post.get($stateParams.id);
           }
         }
       });

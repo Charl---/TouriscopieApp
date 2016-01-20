@@ -26,8 +26,9 @@ function bootstrap(appModule) {
     });
 }
 
-function appRun($rootScope, $log, $ionicPlatform, $window) {
+function appRun($rootScope, $log, $ionicPlatform, $window, Connectivity) {
   'ngInject';
+  Connectivity.init();
   /*eslint no-unused-vars:0*/
   $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
     $log.error(error);

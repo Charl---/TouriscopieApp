@@ -1,6 +1,6 @@
 
 class PostListController {
-  constructor($scope, Post, config, $ionicFilterBar) {
+  constructor($scope, Post, config, $ionicFilterBar, Connectivity) {
     'ngInject';
     //ugly shit to make controllerAs work with ionic wtf ???!!??!
     $scope.vm = this;
@@ -8,11 +8,12 @@ class PostListController {
     this.Post = Post;
     this.config = config;
 
+    this.Connectivity = Connectivity;
+
     this.name = 'postList';
     Post.bindAll({}, $scope, 'vm.posts');
     this.page = 2;
     this.$ionicFilterBar = $ionicFilterBar;
-
   }
 
   loadMore() {
@@ -20,12 +21,22 @@ class PostListController {
       this.filterBarInstance();
       this.filterBarInstance = null;
     }
+    // todo duplicate code keep it DRY
+    let adapter = 'http';
+    let queryParams = {
+      page: this.page,
+      'per_page': this.config.crud.itemPerPage,
+      _embed: true,
+      'filter[category_name]': 'Editorial'
+    };
+    if (!this.Connectivity.hasNetwork) {
+      adapter = 'localforage';
+      queryParams = {};
+    }
+    /*eslint quote-props:0*/
     this.Post.findAll(
-      {
-        page: this.page,
-        'per_page': this.config.crud.itemPerPage,
-        _embed: true,
-        'filter[category_name]': 'Editorial'
+      queryParams, {
+        adapter
       }
     ).then((list) =>{
       if (list < this.config.crud.itemPerPage) {
